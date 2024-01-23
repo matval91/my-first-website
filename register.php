@@ -30,6 +30,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $password = $_POST["password"];
 
     // SQL query to insert data into the table
+    $sql_is_user = "SELECT * FROM users WHERE username = '$username'";
+    $is_user = $conn->query($sql_is_user);
+
+    if ($is_user->num_rows > 0) {
+        echo "User " . $username . " exists already";
+        exit();
+    }
+    // SQL query to insert data into the table
     $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
 
     if ($conn->query($sql) === TRUE) {
@@ -42,5 +50,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 // Close the database connection
 $conn->close();
 ?>
-
-
