@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if (password_verify($password, $hashed_password)) {
             echo "Login successful";
             // Redirect the user to the user homepage
-            header("Location: home.php");
+            header("Location: home.php?username=$username");
             exit();
         } else{
             echo "Invalid password";

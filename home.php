@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
+<?php
+$username = $_GET['username'];
+?>
 <head>
     <title>
         Your homepage
     </title>
     <body>
-        <p>This is your homepage</p>
+        <?php
+        echo "This is " . $username . " homepage"
+        ?>
+        
     </body>
 
 </head>
